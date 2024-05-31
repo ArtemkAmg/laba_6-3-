@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування учнів</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        .button:hover {background-color: #3e8e41}
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тестування учнів початкових класів</h1>
+    <p>Скільки буде 3*4?</p>
+    <div>
+        <label for="answer">Виберіть правильну відповідь: </label>
+        <select id="answer">
+            <option value="">--Виберіть відповідь--</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+        </select>
+    </div>
+    <button class="button" id="checkButton">Перевірити</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('checkButton').onclick = function() {
+            var answer = document.getElementById('answer').value;
+            var resultText = "";
+
+            if (answer === "") {
+                resultText = "Будь ласка, виберіть відповідь.";
+            } else if (answer === "12") {
+                resultText = "Правильно! 3 * 4 = 12.";
+            } else {
+                resultText = "Неправильно. Спробуйте ще раз.";
+            }
+
+            document.getElementById('result').innerText = resultText;
+        };
+    </script>
+</body>
+</html>
